@@ -40,11 +40,11 @@
                     </svg>
                 </div>
                 <div class="header-top-right">
-                    <a href="">Бонусы</a>
-                    <a href="">О нас</a>
-                    <a href="">Доставка и оплата</a>
-                    <a href="">Контакты</a>
-                    <a href="">Опт</a>
+                    <a href="/bonuses">Бонусы</a>
+                    <a href="/about">О нас</a>
+                    <a href="/payments">Доставка и оплата</a>
+                    <a href="/contacts">Контакты</a>
+                    <a href="/opt">Опт</a>
                 </div>
             </div>
             <div class="header-bottom">
