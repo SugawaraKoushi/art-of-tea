@@ -4,22 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function initBannerSlider() {
     const slider = document.getElementById("slider");
-    const points = document.querySelectorAll(".pagination-point"); // Добавлена точка перед классом
-
-    // Проверка существования элементов
-    if (!slider) {
-        console.error("Элемент слайдера (slider) не найден");
-        return;
-    }
-
-    if (points.length === 0) {
-        console.error("Точки пагинации (pagination-point) не найдены");
-        return;
-    }
+    const points = document.querySelectorAll(".pagination-point");
 
     function scrollToIndex(index) {
         if (index >= 0 && index < points.length) {
-            // Проверка валидности индекса
             slider.scrollTo({
                 left: index * slider.clientWidth,
                 behavior: "smooth",
@@ -37,7 +25,6 @@ function initBannerSlider() {
         });
     }
 
-    // Инициализация
     slider.addEventListener("scroll", updatePoints);
 
     points.forEach((point) => {
@@ -50,6 +37,5 @@ function initBannerSlider() {
         });
     });
 
-    // Обновляем точки при первой загрузке
     updatePoints();
 }
