@@ -4,6 +4,7 @@
 
 <head>
     <link rel="stylesheet" href="./styles.css" />
+    <script src="scripts/BannerSlider.js"></script>
 </head>
 
 <body>
@@ -90,23 +91,26 @@
     </header>
     <main>
         <div class="layout">
-            <div class="banner-container">
-                <div class="banner">
-                    <div class="banner-item">
+            <div class="slider-container">
+                <div class="slider" id="slider">
+                    <div class="slide">
                         <img src="slide 1 background.png" alt="">
                     </div>
-                    <div class="banner-item">
+                    <div class="slide">
                         <img src="slide 1 background.png" alt="">
                     </div>
-                    <div class="banner-item">
+                    <div class="slide">
                         <img src="slide 1 background.png" alt="">
                     </div>
-                    <div class="banner-item">
+                    <div class="slide">
                         <img src="slide 1 background.png" alt="">
                     </div>
                 </div>
-                <div class="pagination-slider">
-
+                <div class="pagination-slider" id="pagination-slider">
+                    <div class="pagination-point active" data-index="0"></div>
+                    <div class="pagination-point" data-index="1"></div>
+                    <div class="pagination-point" data-index="2"></div>
+                    <div class="pagination-point" data-index="3"></div>
                 </div>
             </div>
         </div>

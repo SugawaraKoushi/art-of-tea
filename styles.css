@@ -172,14 +172,14 @@ a {
     width: 268px;
 }
 
-.banner-container {
+.slider-container {
     width: 100%;
     height: 340px;
 
     padding-top: 24px;
 }
 
-.banner {
+.slider {
     width: 100%;
     height: 100%;
 
@@ -193,19 +193,49 @@ a {
     scrollbar-width: none;
 }
 
-.banner::-webkit-scrollbar {
+.slider::-webkit-scrollbar {
     display: none;
 }
 
-.banner-item {
+.slide {
     display: inline-block;
     width: 1300px;
     height: 340px;
     scroll-snap-align: center;
 }
 
-.banner-item > img {
+.slide > img {
     width: 100%;
     height: 100%;
     border-radius: 20px;
+}
+
+.pagination-slider {
+    position: relative;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    z-index: 10;
+    align-items: center;
+    height: 12px;
+}
+
+.pagination-point {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+
+    background: #ffffff99;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.pagination-point.active {
+    width: 16px;
+    background-color: #ffffff;
 }
