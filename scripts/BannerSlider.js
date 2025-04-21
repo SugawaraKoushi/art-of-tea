@@ -1,41 +1,58 @@
 document.addEventListener("DOMContentLoaded", function () {
-    initBannerSlider();
+    // Инициализируем все баннеры на странице
+    document.querySelectorAll(".slider").forEach((slider) => {
+        initBannerSlider(slider.id);
+    });
 });
 
-function initBannerSlider() {
-    const slider = document.getElementById("slider");
-    const points = document.querySelectorAll(".pagination-point");
+function initBannerSlider(sliderId) {
+    const slider = document.getElementById(sliderId);
+    const points = document.querySelectorAll(
+        `.pagination-point[data-slider="${sliderId}"]`
+    );
 
-    function scrollToIndex(index) {
-        if (index >= 0 && index < points.length) {
-            slider.scrollTo({
-                left: index * slider.clientWidth,
+    if (!slider || points.length === 0) return;
+
+    const sliderClass = new BannerSlider(slider, points);
+    sliderClass.init();
+}
+
+class BannerSlider {
+    constructor(slider, points) {
+        this.slider = slider;
+        this.points = points;
+        this.interval = null;
+    }
+
+    init() {
+        this.slider.addEventListener("scroll", () => this.updatePoints());
+
+        this.points.forEach((point) => {
+            point.addEventListener("click", () => {
+                const index = parseInt(point.getAttribute("data-index"));
+                this.scrollToIndex(index);
+            });
+        });
+
+        this.updatePoints();
+    }
+
+    scrollToIndex(index) {
+        if (index >= 0 && index < this.points.length) {
+            this.slider.scrollTo({
+                left: index * this.slider.clientWidth,
                 behavior: "smooth",
             });
         }
     }
 
-    function updatePoints() {
-        const scrollPos = slider.scrollLeft;
-        const slideWidth = slider.clientWidth;
+    updatePoints() {
+        const scrollPos = this.slider.scrollLeft;
+        const slideWidth = this.slider.clientWidth;
         const activeIndex = Math.round(scrollPos / slideWidth);
 
-        points.forEach((point, index) => {
+        this.points.forEach((point, index) => {
             point.classList.toggle("active", index === activeIndex);
         });
     }
-
-    slider.addEventListener("scroll", updatePoints);
-
-    points.forEach((point) => {
-        point.addEventListener("click", function () {
-            const index = parseInt(this.getAttribute("data-index"));
-            if (!isNaN(index)) {
-                // Проверка что индекс - число
-                scrollToIndex(index);
-            }
-        });
-    });
-
-    updatePoints();
 }

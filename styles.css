@@ -236,7 +236,7 @@ h3 {
     padding-top: 24px;
 }
 
-.slider {
+.slider#slider1 {
     display: flex;
     gap: 16px;
 
@@ -267,17 +267,42 @@ h3 {
     position: relative;
 }
 
-.slide > img {
+.slide > .slide-background {
     width: 100%;
     height: 100%;
     border-radius: 20px;
+    position: absolute;
+}
+
+.avatar {
+    position: absolute;
+    width: 234px;
+    right: 46px;
+}
+
+.message {
+    position: absolute;
+    top: 16px;
+    right: 184px;
+
+    width: 172px;
+    height: 72px;
+
+    border-radius: 16px 16px 0 16px;
+
+    padding: 7px 14px;
+
+    background-color: #f4f4f4;
+    white-space: normal;
+}
+
+.message > text {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
 }
 
 .pagination-slider {
-    position: relative;
-    bottom: 20px;
-    left: 0;
-    right: 0;
     display: flex;
     justify-content: center;
     gap: 4px;
@@ -286,38 +311,59 @@ h3 {
     height: 12px;
 }
 
+.slider-container > .pagination-slider {
+    position: relative;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+}
+
 .pagination-point {
     width: 8px;
     height: 8px;
     border-radius: 4px;
 
-    background: #ffffff99;
     cursor: pointer;
 
     transition: all 0.3s ease;
     flex-shrink: 0;
 }
 
-.pagination-point.active {
+.slider-container * .pagination-point {
+    background: #ffffff99;
+}
+
+.slider-container * .pagination-point.active {
     width: 16px;
     background-color: #ffffff;
 }
 
+.popular-container > .pagination-slider {
+    padding-top: 8px;
+}
+
+.popular-container * .pagination-point {
+    background: #1c1c1c1f;
+}
+
+.popular-container * .pagination-point.active {
+    width: 16px;
+    background-color: #a4a4a5;
+}
+
 .popular-container {
-    display: flex;
-    flex-direction: column;
     padding-top: 48px;
     gap: 16px;
-    align-items: flex-start;
     height: 492px;
 }
 
-.popular-slider {
+.slider#slider2 {
     display: flex;
     gap: 8px;
 
     width: 100%;
-    height: 100%;
+
+    padding-top: 16px;
 
     overflow: auto hidden;
     white-space: nowrap;

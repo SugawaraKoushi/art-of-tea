@@ -28,7 +28,6 @@
                         </svg>
                         Москва
                     </button>
-
                 </div>
                 <div class="header-top-center"><svg width="168" height="24" viewBox="0 0 168 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -92,31 +91,37 @@
     <main>
         <div class="layout">
             <div class="slider-container">
-                <div class="slider" id="slider">
+                <div class="slider" id="slider1">
                     <div class="slide">
-                        <img src="images/slide 1 bg.png" alt=""/>
+                        <img class="slide-background" src="images/slide 1 bg.png" alt="ng" />
                         <h1 class="title">ПЕРСОНАЛЬНЫЙ АСИСТЕНТ</h1>
                         <button class="button-base-secondary very-large" id="open-modal">
-                            <img src="icons/fill/20/stars.svg" alt=""/>
+                            <img src="icons/fill/20/stars.svg" alt="" />
                             Ввести запрос
                         </button>
+                        <img class="avatar" src="images/avatar.png" alt="avatar" />
+                        <div class="message">
+                            Добрый день!</br>
+                            Я Ваш личный ассистент</br>
+                            Чем я могу помочь?
+                        </div>
                     </div>
                     <div class="slide">
-                        <img src="images/slide 2 bg.png" alt="">
+                        <img class="slide-background" src="images/slide 2 bg.png" alt="">
                     </div>
                 </div>
                 <div class="pagination-slider" id="pagination-slider">
-                    <div class="pagination-point active" data-index="0"></div>
-                    <div class="pagination-point" data-index="1"></div>
-                    <div class="pagination-point" data-index="2"></div>
-                    <div class="pagination-point" data-index="3"></div>
+                    <div class="pagination-point active" data-index="0" data-slider="slider1"></div>
+                    <div class="pagination-point" data-index="1" data-slider="slider1"></div>
+                    <div class="pagination-point" data-index="2" data-slider="slider1"></div>
+                    <div class="pagination-point" data-index="3" data-slider="slider1"></div>
                 </div>
             </div>
         </div>
         <div class="layout">
             <div class="popular-container">
                 <h3>Популярное</h3>
-                <div class="popular-slider">
+                <div class="slider" id="slider2">
                     <div class="card-product">
                         <div class="card-preview-slider">
                             <img src="images/product.png" alt="">
@@ -186,10 +191,10 @@
                             <img src="images/product.png" alt="">
                         </div>
                         <div class="card-info">
-                            <div class="card-title">Клитория тройчатая (Синий чай), Таиланд</div>
-                            <div class="card-name">Травы, добавки</div>
+                            <div class="card-title">Цзинь Цзюнь Мэй «Золотые Брови», 2024 г.</div>
+                            <div class="card-name">Красный чай</div>
                             <div class="card-price">
-                                <div class="price">380 ₽</div>
+                                <div class="price">1050 ₽</div>
                                 <div class="rating-wrap">
                                     <div class="rating">
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
@@ -213,6 +218,12 @@
                             </select>
                         </div>
                     </div>
+                </div>
+                <div class="pagination-slider" id="pagination-slider">
+                    <div class="pagination-point active" data-index="0" data-slider="slider2"></div>
+                    <div class="pagination-point" data-index="1" data-slider="slider2"></div>
+                    <div class="pagination-point" data-index="2" data-slider="slider2"></div>
+                    <div class="pagination-point" data-index="3" data-slider="slider2"></div>
                 </div>
             </div>
         </div>
