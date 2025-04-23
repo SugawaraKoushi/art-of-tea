@@ -342,7 +342,8 @@
                 <h5>Чем я могу помочь?</h5>
                 <form action="post" class="modal-form">
                     <div class="prompt-wrap">
-                        <textarea type="text" class="prompt-area" placeholder="Введите Ваш запрос"></textarea>
+                        <textarea type="text" class="prompt-area" placeholder="Введите Ваш запрос" onfocus="handleInputFocusIn()"
+                        onblur="handleInputFocusOut()"></textarea>
                         <button class="button-base-accent" type="submit" id="send-prompt-btn">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">

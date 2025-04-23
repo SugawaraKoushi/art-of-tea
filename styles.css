@@ -640,13 +640,10 @@ h5 {
     width: 40px;
     height: 40px;
 
-    background: #4db027;
+    background: #e4e4e4;
     border-radius: 8px;
 
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    flex-grow: 0;
+    transition: background 0.3s;
 }
 
 #send-prompt-btn {

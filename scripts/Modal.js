@@ -11,3 +11,13 @@ function closeModal() {
     modal.style.display = "none";
     document.body.style.overflow = "auto";
 }
+
+function handleInputFocusOut() {
+    const btn = document.getElementById("send-prompt-btn");
+    btn.style.background = "#e4e4e4";
+}
+
+function handleInputFocusIn() {
+    const btn = document.getElementById("send-prompt-btn");
+    btn.style.background = "#4db027";
+}
