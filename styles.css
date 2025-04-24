@@ -590,6 +590,8 @@ h5 {
 }
 
 .modal-content {
+    position: relative;
+
     max-width: 700px;
     height: 100%;
     margin: auto;
@@ -607,6 +609,10 @@ h5 {
 
 .modal-form {
     width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .prompt-wrap {
@@ -650,4 +656,32 @@ h5 {
     position: absolute;
     right: 8px;
     bottom: 8px;
+}
+
+.badge-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.badge {
+    font: inherit;
+    font-size: 13px;
+    line-height: 20px;
+    box-sizing: border-box;
+    padding: 8px 16px;
+    height: 36px;
+    background: #f6fbf4;
+    border-radius: 8px;
+    color: #4db027;
+    cursor: pointer;
+}
+
+#modal-avatar {
+    position: absolute;
+    bottom: 64px;
+    left: -298px;
+
+    width: 234px;
+    height: 423px;
 }

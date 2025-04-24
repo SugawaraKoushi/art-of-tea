@@ -336,14 +336,13 @@
                     </div>
                     <button class="button-base-secondary medium" onclick="closeModal()">Закрыть</button>
                 </div>
-
             </div>
             <div class="modal-content">
                 <h5>Чем я могу помочь?</h5>
-                <form action="post" class="modal-form">
+                <form action="" class="modal-form">
                     <div class="prompt-wrap">
-                        <textarea type="text" class="prompt-area" placeholder="Введите Ваш запрос" onfocus="handleInputFocusIn()"
-                        onblur="handleInputFocusOut()"></textarea>
+                        <textarea type="text" class="prompt-area" placeholder="Введите Ваш запрос"
+                            onfocus="handleInputFocusIn()" onblur="handleInputFocusOut()"></textarea>
                         <button class="button-base-accent" type="submit" id="send-prompt-btn">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -353,9 +352,20 @@
                             </svg>
                         </button>
                     </div>
-
+                    <div class="badge-stack">
+                        <div class="badge">Чайные новинки</div>
+                        <div class="badge">Чай для бодрости</div>
+                        <div class="badge">Чай для сна</div>
+                        <div class="badge">Как заварить чай?</div>
+                        <div class="badge">Чайные церемонии</div>
+                        <div class="badge">Чай для медитации</div>
+                        <div class="badge">Какой чай называют «русским»?</div>
+                        <div class="badge">В каком часу пьют чай англичане?</div>
+                    </div>
                 </form>
+                <img id="modal-avatar" src="images/avatar reversed.png" alt="" />
             </div>
+            
         </div>
     </main>
     <footer></footer>
