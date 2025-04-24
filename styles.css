@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
 
+
+@media (max-width: 860px) {
+
+}
+
 body {
     background-color: #f4f4f4;
     font-family: "Jost", sans-serif;
@@ -274,8 +279,7 @@ h5 {
 }
 
 .slide {
-    display: inline-block;
-    width: 1300px;
+    width: 96.73%;
     height: 340px;
     scroll-snap-align: center;
     flex-shrink: 0;
@@ -552,6 +556,7 @@ h5 {
 }
 
 .modal {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
