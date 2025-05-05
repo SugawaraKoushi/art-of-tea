@@ -1,8 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
 
-
 @media (max-width: 860px) {
-
 }
 
 body {
@@ -66,6 +64,27 @@ h5 {
     font-weight: 500;
     margin: 0;
     padding: 0;
+}
+
+h6 {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    letter-spacing: 0%;
+    margin: 0;
+    padding: 0;
+}
+
+.text-regular {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+
+.text-regular.secondary {
+    color: #777778;
 }
 
 .layout {
@@ -191,7 +210,7 @@ h5 {
 .button-base-fill {
     padding: 8px 16px;
 
-    min-width: 134px;
+    min-width: 71px;
 
     background: #4db027;
     border: 1px solid #4db027;
@@ -506,6 +525,8 @@ h5 {
 
     height: 40px;
 
+    min-width: 100px;
+
     background: #f4f4f4;
     border: #f4f4f4;
     border-radius: 8px;
@@ -630,7 +651,7 @@ h5 {
     box-sizing: border-box;
 }
 
-.modal-main .modal-content { 
+.modal-main .modal-content {
     height: 100%;
 }
 
@@ -710,4 +731,124 @@ h5 {
 
     width: 234px;
     height: 423px;
+}
+
+.message-list {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    gap: 24px;
+
+    overflow-y: auto;
+
+    width: 100%;
+    height: 100%;
+}
+
+.message-item-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+
+    width: 100%;
+    height: fit-content;
+
+    flex-grow: 0 1;
+}
+
+.message-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.message-item-container.send {
+    align-items: end;
+}
+
+.message-item-container.send > .message-item {
+    box-sizing: border-box;
+    padding: 8px 16px;
+
+    max-width: 500px;
+    min-height: 40px;
+    width: 100%;
+
+    background: #f4f4f4;
+    border-radius: 16px;
+}
+
+.message-product-card {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: fit-content;
+
+    padding: 12px;
+
+    gap: 12px;
+
+    border-radius: 16px;
+    border: 1px solid #ededed;
+}
+
+.message-product-card > .top-wrap {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+}
+
+.message-product-card > .top-wrap > .text-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.message-product-card > .top-wrap > .preview-wrap > img {
+    width: 96px;
+    height: 96px;
+    border-radius: 8px;
+}
+
+.message-product-card > .bottom-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+.message-product-card > .bottom-wrap > .button-group {
+    display: flex;
+    gap: 8px;
+}
+
+.add-button-variant-1 {
+    min-width: 138px;
+}
+
+.add-button-variant-2 {
+    box-sizing: border-box;
+    padding: 8px 16px;
+
+    min-width: 138px;
+
+    display: none;
+    justify-content: space-between;
+
+    min-height: 40px;
+
+    background: #f1f9ee;
+    border-radius: 8px;
+}
+
+.add-button-variant-2 > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-regular.count {
+    color: #4DB027;
 }

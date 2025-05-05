@@ -1,4 +1,11 @@
-<?php header("Content-type: text/html;charset=utf-8"); ?>
+<?php header("Content-type: text/html;charset=utf-8");
+
+$messages = [
+    "Какой чай лучше пить по утрам?",
+]
+
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <title>Тест</title>
@@ -122,7 +129,7 @@
                 </div>
             </div>
         </div>
-        <div class="layout">
+        <!-- <div class="layout">
             <div class="popular-container">
                 <h3>Популярное</h3>
                 <div class="slider" id="slider2">
@@ -150,7 +157,7 @@
                             </div>
                         </div>
                         <div class="card-button-wrap">
-                            <button class="button-base-fill large">Добавить</button>
+                            <button class="button-base-fill large add-button-variant-1">Добавить</button>
                             <select class="select-large">
                                 <option value="50">50гр.</option>
                                 <option value="100">100гр.</option>
@@ -182,7 +189,7 @@
                             </div>
                         </div>
                         <div class="card-button-wrap">
-                            <button class="button-base-fill large">Добавить</button>
+                            <button class="button-base-fill large add-button-variant-1">Добавить</button>
                             <select class="select-large">
                                 <option value="50">50гр.</option>
                                 <option value="100">100гр.</option>
@@ -214,7 +221,7 @@
                             </div>
                         </div>
                         <div class="card-button-wrap">
-                            <button class="button-base-fill large">Добавить</button>
+                            <button class="button-base-fill large add-button-variant-1">Добавить</button>
                             <select class="select-large">
                                 <option value="50">50гр.</option>
                                 <option value="100">100гр.</option>
@@ -246,7 +253,7 @@
                             </div>
                         </div>
                         <div class="card-button-wrap">
-                            <button class="button-base-fill large">Добавить</button>
+                            <button class="button-base-fill large add-button-variant-1">Добавить</button>
                             <select class="select-large">
                                 <option value="50">50гр.</option>
                                 <option value="100">100гр.</option>
@@ -278,7 +285,7 @@
                             </div>
                         </div>
                         <div class="card-button-wrap">
-                            <button class="button-base-fill large">Добавить</button>
+                            <button class="button-base-fill large add-button-variant-1">Добавить</button>
                             <select class="select-large">
                                 <option value="50">50гр.</option>
                                 <option value="100">100гр.</option>
@@ -294,7 +301,7 @@
                     <div class="pagination-point" data-index="3" data-slider="slider2"></div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <button class="button-floating hidden" id="open-modal-floating" onclick="showModal()">
             <img src="/images/avatar 2.png" alt="">
         </button>
@@ -340,7 +347,123 @@
                 </div>
             </div>
             <div class="modal-content">
-                <h5>Чем я могу помочь?</h5>
+                <div class="message-list">
+                    <?php foreach ($messages as $msg): ?>
+                        <div class="message-item-container send">
+                            <div class="message-item">
+                                <?php echo $msg ?>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+
+                    <div class="message-item-container recieve">
+                        <div class="message-item">
+                            <span class='text-regular'>Для утреннего чаепития я рекомендую следующие варианты, которые помогут вам начать день с бодростью и свежестью:</span>
+                            <div class="message-product-card" id="product-1">
+                                <div class="top-wrap">
+                                    <div class="text-wrap">
+                                        <h6>Зелёный чай с жасмином Моли Хуа Люй Ча 🌿</h6>
+                                        <span class='text-regular secondary'>
+                                            Этот столовый зелёный чай с лепестками жасмина обладает насыщенным и сбалансированным ароматом, который сохраняется до конца чаепития. Он освежает и мягко тонизирует, что делает его отличным выбором для утреннего или дневного чаепития. 🌼✨
+                                        </span>
+                                    </div>
+                                    <div class="preview-wrap">
+                                        <img src="./images/product.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="bottom-wrap">
+                                    <div class="button-group">
+                                        <button class="button-base-fill large add-button-variant-1">Добавить</button>
+                                        <div class="add-button-variant-2">
+                                            <button class="counter-button minus">
+                                                <img src="./icons/stroke/20/minus.svg" alt="">
+                                            </button>
+                                            <span class="text-regular count">1</span>
+                                            <button class="counter-button plus">
+                                                <img src="./icons/stroke/20/plus.svg" alt="">
+                                            </button>
+                                        </div>
+                                        <select class="select-large">
+                                            <option value="50">50гр.</option>
+                                            <option value="100">100гр.</option>
+                                            <option value="150">150гр.</option>
+                                        </select>
+                                        <button class="button-base-secondary">О чае</button>
+                                    </div>
+                                    <h5>330 ₽</h5>
+                                </div>
+                            </div>
+                            <div class="message-product-card" id="product-2">
+                                <div class="top-wrap">
+                                    <div class="text-wrap">
+                                        <h6>Шу пуэр Мэнхай Гунтин, 2021 г. 🍂</h6>
+                                        <span class='text-regular secondary'>
+                                            Этот высокосортный шу пуэр из региона Мэнхай обладает пряным, древесным ароматом с нотками чернослива. Он тонизирует и наполняет энергией, что делает его отличным вариантом для утреннего чаепития. ☕️✨
+                                        </span>
+                                    </div>
+                                    <div class="preview-wrap">
+                                        <img src="./images/product.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="bottom-wrap">
+                                    <div class="button-group">
+                                        <button class="button-base-fill large add-button-variant-1">Добавить</button>
+                                        <div class="add-button-variant-2">
+                                            <button class="counter-button minus">
+                                                <img src="./icons/stroke/20/minus.svg" alt="">
+                                            </button>
+                                            <span class="text-regular count">1</span>
+                                            <button class="counter-button plus">
+                                                <img src="./icons/stroke/20/plus.svg" alt="">
+                                            </button>
+                                        </div>
+                                        <select class="select-large">
+                                            <option value="50">50гр.</option>
+                                            <option value="100">100гр.</option>
+                                            <option value="150">150гр.</option>
+                                        </select>
+                                        <button class="button-base-secondary">О чае</button>
+                                    </div>
+                                    <h5>5 706 ₽</h5>
+                                </div>
+                            </div>
+                            <div class="message-product-card" id="product-1">
+                                <div class="top-wrap">
+                                    <div class="text-wrap">
+                                        <h6>Тегуаньинь 🌸</h6>
+                                        <span class='text-regular secondary'>
+                                            Этот улун с нотками яблочного пюре и цветущей сирени может заметно тонизировать в крепко заваренном виде. Он идеально подходит для утреннего чаепития, создавая свежую и лёгкую атмосферу. 🍃✨
+                                        </span>
+                                    </div>
+                                    <div class="preview-wrap">
+                                        <img src="./images/product.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="bottom-wrap">
+                                    <div class="button-group">
+                                        <button class="button-base-fill large add-button-variant-1">Добавить</button>
+                                        <div class="add-button-variant-2">
+                                            <button class="counter-button minus">
+                                                <img src="./icons/stroke/20/minus.svg" alt="">
+                                            </button>
+                                            <span class="text-regular count">1</span>
+                                            <button class="counter-button plus">
+                                                <img src="./icons/stroke/20/plus.svg" alt="">
+                                            </button>
+                                        </div>
+                                        <select class="select-large">
+                                            <option value="50">50гр.</option>
+                                            <option value="100">100гр.</option>
+                                            <option value="150">150гр.</option>
+                                        </select>
+                                        <button class="button-base-secondary">О чае</button>
+                                    </div>
+                                    <h5>450 ₽</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <form action="./chat.html" class="modal-form">
                     <div class="prompt-wrap">
                         <textarea type="text" class="prompt-area" placeholder="Введите Ваш запрос"
