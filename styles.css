@@ -312,7 +312,7 @@ h6 {
 
 .slide {
     max-width: 1300px;
-    width: 96.72%;
+    width: calc(1285 * 100vw / 1344);
     height: 340px;
     scroll-snap-align: center;
     flex-shrink: 0;
@@ -915,7 +915,6 @@ h6 {
     }
 
     .slider-container {
-        box-sizing: border-box;
         padding-top: 16px;
     }
 
@@ -923,12 +922,17 @@ h6 {
         gap: 8px;
     }
 
-    .slider#slider1:first-child {
+    .slider#slider1 > :first-child {
+        margin-left: 16px;
+    }
+
+    .slider#slider1 > :last-child {
         margin-right: 16px;
     }
 
     .slide {
-        max-width: 343px;
+        /* max-width: 343px; */
+        width: calc(1230 * 100vw / 1344);
     }
 
     img.avatar {
