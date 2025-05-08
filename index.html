@@ -5,7 +5,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./styles.css" />
-    <script src="./scripts/BannerSlider.js"></script>
+    <script src="./scripts/BannerSlider.js" defer></script>
     <script src="./scripts/ShowButton.js"></script>
     <script src="./scripts/Modal.js"></script>
     <script src="./scripts/ProductCounter.js"></script>
@@ -197,7 +197,16 @@
                             Корзина
                         </button>
                     </div>
-                    <button class="button-base-secondary medium" onclick="closeModal()">Закрыть</button>
+                    <button class="button-base-secondary medium" id="close-modal-desktop"
+                        onclick="closeModal()">Закрыть</button>
+                    <button class="button-base-secondary" id="close-modal-mobile" onclick="closeModal()">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M15.2296 5.33062C15.3703 5.18997 15.4493 4.9992 15.4493 4.80029C15.4493 4.60138 15.3703 4.41061 15.2296 4.26996C15.089 4.12931 14.8982 4.05029 14.6993 4.05029C14.5004 4.05029 14.3096 4.12931 14.169 4.26996L9.74955 8.68938L5.33013 4.26996C5.18948 4.12931 4.99872 4.05029 4.7998 4.05029C4.60089 4.05029 4.41013 4.12931 4.26947 4.26996C4.12882 4.41061 4.04981 4.60138 4.04981 4.80029C4.04981 4.9992 4.12882 5.18997 4.26947 5.33062L8.68889 9.75004L4.26947 14.1695C4.12882 14.3101 4.0498 14.5009 4.0498 14.6998C4.0498 14.8987 4.12882 15.0895 4.26947 15.2301C4.41013 15.3708 4.60089 15.4498 4.7998 15.4498C4.99872 15.4498 5.18948 15.3708 5.33013 15.2301L9.74955 10.8107L14.169 15.2301C14.3096 15.3708 14.5004 15.4498 14.6993 15.4498C14.8982 15.4498 15.089 15.3708 15.2296 15.2301C15.3703 15.0895 15.4493 14.8987 15.4493 14.6998C15.4493 14.5009 15.3703 14.3101 15.2296 14.1695L10.8102 9.75004L15.2296 5.33062Z"
+                                fill="black" />
+                        </svg>
+                    </button>
+
                 </div>
             </div>
             <div class="modal-content">
@@ -217,15 +226,31 @@
                             </button>
                         </a>
                     </div>
-                    <div class="badge-stack">
-                        <div class="badge">Чайные новинки</div>
-                        <div class="badge">Чай для бодрости</div>
-                        <div class="badge">Чай для сна</div>
-                        <div class="badge">Как заварить чай?</div>
-                        <div class="badge">Чайные церемонии</div>
-                        <div class="badge">Чай для медитации</div>
-                        <div class="badge">Какой чай называют «русским»?</div>
-                        <div class="badge">В каком часу пьют чай англичане?</div>
+                    <div class="slider-container badge-stack">
+                        <div class="slider" id="slider2">
+                            <div class="slide">
+                                <div class="badge">Чайные новинки</div>
+                                <div class="badge">Чай для бодрости</div>
+                            </div>
+                            <div class="slide">
+                                <div class="badge">Чай для сна</div>
+                                <div class="badge">Как заварить чай?</div>
+                            </div>
+                            <div class="slide">
+                                <div class="badge">Чайные церемонии</div>
+                                <div class="badge">Чай для медитации</div>
+                            </div>
+                            <div class="slide">
+                                <div class="badge">Какой чай называют «русским»?</div>
+                                <div class="badge">В каком часу пьют чай англичане?</div>
+                            </div>
+                        </div>
+                        <div class="pagination-slider" id="pagination-slider">
+                            <div class="pagination-point active" data-index="0" data-slider="slider2"></div>
+                            <div class="pagination-point" data-index="1" data-slider="slider2"></div>
+                            <div class="pagination-point" data-index="2" data-slider="slider2"></div>
+                            <div class="pagination-point" data-index="3" data-slider="slider2"></div>
+                        </div>
                     </div>
                 </form>
                 <img id="modal-avatar" src="images/avatar reversed.png" alt="" />

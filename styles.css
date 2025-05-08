@@ -981,4 +981,79 @@ h6 {
     .button-floating {
         display: none;
     }
+
+    .modal-header-button-wrap > .modal-header-button-group {
+        display: none;
+    }
+
+    .modal-header {
+        padding: 24px 16px 0 16px;
+    }
+
+    .modal-header {
+        align-items: center;
+    }
+
+    #close-modal-desktop {
+        display: none;
+    }
+
+    #close-modal-mobile {
+        min-width: 0;
+        width: 32px;
+        height: 32px;
+    }
+
+    .modal * .slider-container {
+        height: auto;
+        padding-top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .modal * .slider {
+        padding-top: 0 !important;
+    }
+
+    .modal * .slide {
+        display: flex;
+        flex-direction: row;
+        gap: 4px;
+
+        width: auto;
+        height: auto;
+        flex-direction: row;
+    }
+
+    .modal * .slider > :first-child {
+        margin-left: 16px;
+    }
+
+    .modal * .slider > :last-child {
+        margin-right: 16px;
+    }
+
+    .modal * .pagination-slider {
+        position: static;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .modal * .pagination-slider > .pagination-point {
+        background: #1a1a1a1f;
+    }
+
+    .modal * .pagination-slider > .pagination-point.active {
+        background: #a4a4a5;
+    }
+
+    .prompt-wrap {
+        padding: 0 16px;
+    }
+
+    #send-prompt-btn {
+        right: 24px;
+    }
 }
