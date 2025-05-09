@@ -535,7 +535,8 @@ h6 {
 
     height: 40px;
 
-    min-width: 100px;
+    min-width: 85px;
+    max-width: 140px;
 
     background: #f4f4f4;
     border: #f4f4f4;
@@ -835,6 +836,7 @@ h6 {
 
 .message-product-card > .bottom-wrap > .button-group {
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
 }
 
