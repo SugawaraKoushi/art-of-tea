@@ -824,6 +824,10 @@ h6 {
     border-radius: 8px;
 }
 
+.preview-wrap {
+    position: relative;
+}
+
 .message-product-card > .bottom-wrap {
     display: flex;
     justify-content: space-between;
@@ -869,6 +873,63 @@ h6 {
 
 .tab-bar {
     display: none;
+}
+
+.badge-stack.mobile {
+    display: none;
+}
+
+#close-modal-mobile {
+    display: none;
+}
+
+.favourite-toggle {
+    display: none;
+}
+
+.favourite-icon {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.favourite-icon {
+    min-width: 0;
+    width: 32px;
+    height: 32px;
+
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+
+    background: #1c1c1e05;
+    border-radius: 8px;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    position: absolute;
+    top: 4px;
+    right: 4px;
+}
+
+.toggle-icon-filled {
+    display: none;
+}
+
+.favourite-toggle:checked + .favourite-icon .toggle-icon-filled {
+    display: block;
+}
+
+.favourite-toggle:checked + .favourite-icon .toggle-icon-empty {
+    display: none;
+    
+}
+
+.favourite-toggle:checked + .favourite-icon {
+    background-color: rgba(0,0,0,0);
 }
 
 @media (max-width: 860px) {
@@ -999,12 +1060,13 @@ h6 {
     }
 
     #close-modal-mobile {
+        display: flex;
         min-width: 0;
         width: 32px;
         height: 32px;
     }
 
-    .modal * .slider-container {
+    .modal * .slider-container.badge-stack {
         height: auto;
         padding-top: 0;
         display: flex;
@@ -1055,5 +1117,48 @@ h6 {
 
     #send-prompt-btn {
         right: 24px;
+    }
+
+    .badge-stack.desktop {
+        display: none;
+    }
+
+    .modal-avatar {
+        display: none;
+    }
+
+    .message-list {
+        box-sizing: border-box;
+        padding: 16px 16px 0 16px;
+    }
+
+    .modal-content {
+        gap: 8px;
+    }
+
+    .message-product-card > .top-wrap > .preview-wrap {
+        order: 1;
+    }
+
+    .message-product-card > .top-wrap > .text-wrap {
+        order: 2;
+    }
+
+    .message-product-card > .top-wrap {
+        flex-direction: column;
+    }
+
+    .favourite-icon {
+        top: 0;
+        right: 0;
+    }
+
+    .message-product-card > .bottom-wrap {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .message-product-card > .bottom-wrap > .button-group {
+        order: 2;
     }
 }
