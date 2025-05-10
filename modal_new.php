@@ -66,39 +66,23 @@
                     </a>
                 </div>
                 <div class="badge-stack desktop">
-                    <div class="badge">Чайные новинки</div>
-                    <div class="badge">Чай для бодрости</div>
-                    <div class="badge">Чай для сна</div>
-                    <div class="badge">Как заварить чай?</div>
-                    <div class="badge">Чайные церемонии</div>
-                    <div class="badge">Чай для медитации</div>
-                    <div class="badge">Какой чай называют «русским»?</div>
-                    <div class="badge">В каком часу пьют чай англичане?</div>
+                    <?php foreach ($prompts as $prompt) {
+                        echo '<div class="badge">' . $prompt->text . '</div>';
+                    } ?>
                 </div>
                 <div class="slider-container badge-stack mobile">
                     <div class="slider" id="slider2">
-                        <div class="slide">
-                            <div class="badge">Чайные новинки</div>
-                            <div class="badge">Чай для бодрости</div>
-                        </div>
-                        <div class="slide">
-                            <div class="badge">Чай для сна</div>
-                            <div class="badge">Как заварить чай?</div>
-                        </div>
-                        <div class="slide">
-                            <div class="badge">Чайные церемонии</div>
-                            <div class="badge">Чай для медитации</div>
-                        </div>
-                        <div class="slide">
-                            <div class="badge">Какой чай называют «русским»?</div>
-                            <div class="badge">В каком часу пьют чай англичане?</div>
-                        </div>
+                        <?php foreach ($prompts as $prompt): ?>
+                            <div class="slide">
+                                <div class="badge"><?php echo $prompt->text ?></div>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
                     <div class="pagination-slider" id="pagination-slider">
-                        <div class="pagination-point active" data-index="0" data-slider="slider2"></div>
-                        <div class="pagination-point" data-index="1" data-slider="slider2"></div>
-                        <div class="pagination-point" data-index="2" data-slider="slider2"></div>
-                        <div class="pagination-point" data-index="3" data-slider="slider2"></div>
+                        <?php foreach ($prompts as $prompt) {
+                            echo ' <div class="pagination-point" data-index="' . $prompt->id . '" data-slider="slider2"></div>';
+                        }
+                        ?>
                     </div>
                 </div>
             </form>

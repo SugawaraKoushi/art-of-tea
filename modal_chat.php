@@ -258,14 +258,9 @@
                         </a>
                     </div>
                     <div class="badge-stack desktop">
-                        <div class="badge">Чайные новинки</div>
-                        <div class="badge">Чай для бодрости</div>
-                        <div class="badge">Чай для сна</div>
-                        <div class="badge">Как заварить чай?</div>
-                        <div class="badge">Чайные церемонии</div>
-                        <div class="badge">Чай для медитации</div>
-                        <div class="badge">Какой чай называют «русским»?</div>
-                        <div class="badge">В каком часу пьют чай англичане?</div>
+                        <?php foreach($prompts as $prompt) {
+                            echo '<div class="badge">' . $prompt->text . '</div>';
+                        }?>
                     </div>
                 </form>
                 <img id="modal-avatar" src="images/avatar reversed.png" alt="" />
