@@ -1,0 +1,13 @@
+{
+    "name": "vladek/art-of-tea",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Vladislav",
+            "email": "senior.vlados97@gmail.com"
+        }
+    ],
+    "require": {
+        "cijic/phpmorphy": "^0.3.6"
+    }
+}

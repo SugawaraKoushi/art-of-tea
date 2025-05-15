@@ -29,7 +29,7 @@
         </div>
     </div>
     <button class="button-floating hidden" id="open-modal-floating" onclick="showModal()">
-        <img src="/images/avatar 2.png" alt="">
+        <img src="images/avatar 2.png" alt="">
     </button>
 
     <?php if (empty($messages)) {
