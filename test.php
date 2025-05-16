@@ -1,10 +1,27 @@
 <?php
 
 require_once 'services/LemmaService.php';
+require_once "repository/LemmaRepository.php";
+require_once "repository/TeaRepository.php";
+require_once "model/Lemma.php";
+require_once "model/Tea.php";
+require "db.php";
 
-$text = 'Собаки бегут, собака лает, собачий корм. Кошки спят, кошка мурлычет, кошачьи игрушки. Яблоки висят, яблоко падает, яблочный пирог. Груши спелые, груша зелёная, грушевое варенье. 123 числа 456 не учитываются! Предлоги и союзы: но, или, с, в - отбрасываются. Междометия: Ой! Ах! Увы! - тоже не нужны. Повторяющиеся слова: дом, дома, дому, домом; река, реки, реку; город, города, городу.  Спецсимволы @#$ и цифры 789 отфильтровываются. Слова с Ё: ёжик, ёлка, ёршик. Короткие слова: я, ты, мы - удаляются.';
+$teaRepository = new TeaRepository($pdo);
+$teas = $teaRepository->get_all_teas();
+
 $lemmaService = new LemmaService();
+$lemmaRepository = new LemmaRepository($pdo);
 
-$lemmas = $lemmaService->get_lemmas($text);
+$index = false;
 
-print_r($lemmas);
+if ($index) {
+    foreach ($teas as $tea) {
+        $lemmas = $lemmaService->get_lemmas($tea->description);
+
+        foreach ($lemmas as $key => $value) {
+            $lemma = new Lemma(0, $key, $value, $tea->id);
+            $lemmaRepository->add_lemma($lemma);
+        }
+    }
+}
