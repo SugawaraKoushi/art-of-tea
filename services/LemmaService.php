@@ -5,7 +5,6 @@ use cijic\phpMorphy\Morphy;
 
 class LemmaService
 {
-    private $englishMorphology;
     private $russianMorphology;
     private $particles_names = ['МЕЖД', 'ПРЕДЛ', 'СОЮЗ', 'ЧАСТ', 'ЧИСЛ'];
 
