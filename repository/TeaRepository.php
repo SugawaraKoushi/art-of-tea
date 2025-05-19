@@ -25,7 +25,7 @@ class TeaRepository
         return $teas;
     }
 
-    public function getTeaById(int $id): ?Tea
+    public function get_tea_by_id(int $id): ?Tea
     {
         $stmt = $this->pdo->prepare("SELECT * FROM `tea` WHERE `id` = ?");
         $stmt->execute([$id]);

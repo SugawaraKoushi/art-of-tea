@@ -1,16 +1,22 @@
 <?php
 
+require_once __DIR__ . '/LemmaService.php';
+require_once __DIR__ . '/../repository/LemmaRepository.php';
+require_once __DIR__ . '/../repository/TeaRepository.php';
+require_once __DIR__ . '/../model/Lemma.php';
+require_once __DIR__ . '/../model/Tea.php';
+
 class SearchService
 {
     private LemmaService $lemmaService;
     private LemmaRepository $lemmaRepository;
     private TeaRepository $teaRepository;
 
-    public function __contruct(PDO $pdo)
+    public function __construct(PDO $pdo)
     {
-        $lemmaRepository = new LemmaRepository($pdo);
-        $teaRepository = new TeaRepository($pdo);
-        $lemmaService = new LemmaService();
+        $this->lemmaRepository = new LemmaRepository($pdo);
+        $this->teaRepository = new TeaRepository($pdo);
+        $this->lemmaService = new LemmaService();
     }
 
     public function index_tea(): void
@@ -27,7 +33,7 @@ class SearchService
         }
     }
 
-    public function search_tea(string $query): array
+    public function search(string $query): array
     {
         $userLemmas = $this->lemmaService->get_lemmas($query);
         $teas = [];
@@ -64,5 +70,14 @@ class SearchService
             return $a <=> $b;
         });
 
-        return $relevantTeas;
+        $teas = [];
+
+        foreach ($relevantTeas as $key => $value) {
+            $teas[] = $this->teaRepository->get_tea_by_id($key);
+        }
+
+        return $teas;
+    }
 }
+
+?>

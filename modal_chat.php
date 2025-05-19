@@ -247,7 +247,7 @@
                         <textarea type="text" class="prompt-area" placeholder="Введите Ваш запрос"
                             onfocus="handleInputFocusIn()" onblur="handleInputFocusOut()"></textarea>
                         <a href="./chat.html">
-                            <button class="button-base-accent" type="submit" id="send-prompt-btn">
+                            <button class="button-base-accent" type="submit" id="send-prompt-btn" onsubmit="handleSearchSubmit()">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
