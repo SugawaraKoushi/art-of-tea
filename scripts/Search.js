@@ -13,7 +13,7 @@ function handleSearchSubmit(event) {
     const query = searchInput.value.trim();
 
     // Отправляем запрос на сервер
-    fetch("../controllers/SearchController.php?action=search", {
+    fetch("/controllers/SearchController.php?action=search", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -30,19 +30,11 @@ function handleSearchSubmit(event) {
             if (data.success) {
                 // Успешный ответ - обрабатываем результаты
                 displayResults(data.data);
-            } else {
-                // Сервер вернул ошибку
-                showError(data.error || "Произошла ошибка при поиске");
             }
         })
         .catch((error) => {
             // Ошибка сети или парсинга JSON
-            showError(error.message);
-        })
-        .finally(() => {
-            // Восстанавливаем кнопку
-            submitButton.disabled = false;
-            submitButton.textContent = "Найти";
+            console.log(error);
         });
 
     return false; // Предотвращаем отправку формы
@@ -65,15 +57,4 @@ function displayResults(results) {
     });
 
     resultsContainer.appendChild(list);
-}
-
-function showError(message) {
-    const errorContainer = document.getElementById("error-message");
-    errorContainer.textContent = message;
-    errorContainer.style.display = "block";
-
-    // Скрываем ошибку через 5 секунд
-    setTimeout(() => {
-        errorContainer.style.display = "none";
-    }, 5000);
 }
