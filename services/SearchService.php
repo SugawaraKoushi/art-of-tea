@@ -33,7 +33,12 @@ class SearchService
         }
     }
 
-    public function search(string $query): array
+    public function get_words_count(string $query) : int {
+        $lemmas = $this->lemmaService->get_lemmas($query);
+        return count($lemmas);
+    }
+
+    public function search_tea(string $query): array
     {
         $userLemmas = $this->lemmaService->get_lemmas($query);
         $teas = [];

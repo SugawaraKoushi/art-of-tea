@@ -22,12 +22,18 @@ class SearchController
                 return;
             }
 
-            $results = $this->searchService->search($query);
+            $lemmasCount = $this->searchService->get_words_count($query);
+            $results = [];
 
-            echo json_encode([
-                'success' => true,
-                'data' => $results
-            ]);
+            if ($lemmasCount <= 2) {
+                $results = $this->searchService->search_tea($query);
+                echo json_encode([
+                    'type' => 'products',
+                    'products' => $results
+                ]);
+            } else {
+                //...
+            }
         } catch (Exception $e) {
             echo json_encode([
                 'success' => false,

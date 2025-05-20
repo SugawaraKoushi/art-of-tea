@@ -18,6 +18,7 @@ class TeaRepository
                 (int)$row['id'],
                 $row['name'],
                 $row['description'],
+                $row['emoji'],
                 (float)$row['price']
             );
         }
@@ -39,6 +40,7 @@ class TeaRepository
             (int)$row['id'],
             $row['name'],
             $row['description'],
+            $row['emoji'],
             (float)$row['price']
         );
     }

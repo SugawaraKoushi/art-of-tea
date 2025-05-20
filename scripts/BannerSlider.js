@@ -44,8 +44,6 @@ class BannerSlider {
 
     scrollToIndex(index) {
         if (index >= 0 && index < this.points.length) {
-            console.log(index);
-
             this.slider.scrollTo({
                 left: this.slides[index].offsetLeft,
                 behavior: "smooth",

@@ -1,10 +1,3 @@
-<?php
-require_once __DIR__ . '/controllers/SearchController.php';
-
-$searchController = new SearchController($pdo);
-
-?>
-
 <main>
     <div class="layout">
         <div class="slider-container">
