@@ -32,7 +32,11 @@ class SearchController
                     'products' => $results
                 ]);
             } else {
-                //...
+                $result = $this->searchService->search_article($query);
+                echo json_encode([
+                    'type' => 'text',
+                    'content' => $result->text
+                ]);
             }
         } catch (Exception $e) {
             echo json_encode([

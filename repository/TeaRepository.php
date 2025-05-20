@@ -15,7 +15,7 @@ class TeaRepository
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $teas[] = new Tea(
-                (int)$row['id'],
+                $row['id'],
                 $row['name'],
                 $row['description'],
                 $row['emoji'],
@@ -37,7 +37,7 @@ class TeaRepository
         }
 
         return new Tea(
-            (int)$row['id'],
+            $row['id'],
             $row['name'],
             $row['description'],
             $row['emoji'],

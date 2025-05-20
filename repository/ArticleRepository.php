@@ -15,7 +15,7 @@ class ArticleRepository
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $articles[] = new Article(
-                (int)$row['id'],
+                $row['id'],
                 $row['text']
             );
         }
@@ -34,7 +34,7 @@ class ArticleRepository
         }
 
         return new Article(
-            (int)$row['id'],
+            $row['id'],
             $row['text']
         );
     }

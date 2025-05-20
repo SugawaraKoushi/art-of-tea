@@ -15,7 +15,7 @@ class PromptRepository
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $prompts[] = new Prompt(
-                (int)$row['id'],
+                $row['id'],
                 $row['text'],
             );
         }

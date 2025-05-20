@@ -22,7 +22,7 @@ class LemmaService
         return $lemmasMap;
     }
 
-    private function get_russian_words_array($text): array
+    public function get_russian_words_array($text): array
     {
         $upperCaseText = mb_strtoupper($text, "UTF-8");
         $clearText = preg_replace('/[^А-ЯЁ\s]/u', ' ', $upperCaseText);

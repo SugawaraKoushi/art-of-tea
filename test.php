@@ -7,6 +7,12 @@ require 'db.php';
 $query = 'чай улун';
 
 $searchService = new SearchService($pdo);
-$teas = $searchService->search($query);
+
+$index = false;
+
+if ($index) {
+    $searchService->index_tea();
+    $searchService->index_articles();
+}
 
 print_r($teas);

@@ -5,21 +5,15 @@ class Lemma
     public int $id;
     public string $lemma;
     public int $frequency;
-    public int $teaId;
+    public int $entityId;
+    public int $entityType;
 
-    public function __construct(int $id, string $lemma, int $frequency, int $teaId)
+    public function __construct(int $id, string $lemma, int $frequency, int $entityId, int $entityType)
     {
         $this->id = $id;
         $this->lemma = $lemma;
         $this->frequency = $frequency;
-        $this->teaId = $teaId;
+        $this->entityId = $entityId;
+        $this->entityType = $entityType;
     }
 }
-
-// Пользователь вводит запрос
-// Получаем леммы из запроса
-// Сортируем все леммы в порядке убывания частоты повторения
-// Получаем товары по релевантности:
-    // Ищем все товары, в которых присутствуют все леммы
-// Сортируем товары по убываюнию релевантности
-// Выводим пользователю товары
