@@ -745,10 +745,14 @@ h6 {
 }
 
 .message-list {
-    display: flex;
+    display: none;
     overflow-y: auto;
     width: 100%;
     height: 100%;
+}
+
+.message-list.show {
+    display: flex;
 }
 
 .message-items-container {
@@ -1078,12 +1082,16 @@ h6 {
         height: 32px;
     }
 
-    .modal * .slider-container.badge-stack {
+    .modal * .slider-container.badge-stack.show {
         height: auto;
         padding-top: 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
+    }
+
+    .modal * .slider-container.badge-stack {
+        display: none;
     }
 
     .modal * .slider {

@@ -5,21 +5,16 @@ document.addEventListener("DOMContentLoaded", function() {
     let currentCardIndex = 0;
     const scrollTime = 200;
 
-    // 1. Улучшенная функция проверки скролла
     function checkScroll() {
         const container = messagesContainer;
         const hasContent = container.scrollHeight > container.clientHeight;
-        const isAtBottom = container.scrollHeight - container.clientHeight <= container.scrollTop + 5;
-        
+        const isAtBottom = container.scrollHeight - container.clientHeight <= container.scrollTop + 5;        
         btn.classList.toggle("visible", hasContent && !isAtBottom);
     }
 
-    // 2. Инициализация с задержкой для полной отрисовки
     function initialize() {
-        // Принудительное обновление layout
         void messagesContainer.offsetHeight;
         
-        // Проверка с несколькими попытками
         let attempts = 0;
         const maxAttempts = 5;
         
@@ -33,8 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 100);
     }
 
-
-    btn.addEventListener("click", function() {
+    btn.addEventListener("click", function() {      
         // Если последняя карточка, то скроллим в самый низ
         if (messages.length === 0) {
             smoothScrollTo(messagesContainer, messagesContainer.scrollHeight, scrollTime);
@@ -102,7 +96,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
     messagesContainer.addEventListener("scroll", checkScroll);
     window.addEventListener("resize", checkScroll);
-    
-    // Экстренная проверка через 1 секунду (на случай проблем с рендерингом)
-    setTimeout(checkScroll, 1000);
 });

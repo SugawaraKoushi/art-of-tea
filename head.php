@@ -11,6 +11,7 @@
     <script src="./scripts/ShowModal.js"></script>
     <script src="./scripts/ProductCounter.js" defer></script>
     <script src="./scripts/Mobile.js" defer></script>
+    <script src="./scripts/ChatScrollMobile.js"></script>
     <script src="./scripts/Search.js"></script>
 </head>
 
