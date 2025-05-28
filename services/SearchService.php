@@ -140,7 +140,11 @@ class SearchService
             return $a <=> $b;
         });
 
-        $article = $this->articleRepository->get_article_by_id(array_values($relevantArticles)[0]);
+        if (!empty($article)) {
+            $article = $this->articleRepository->get_article_by_id(array_values($relevantArticles)[0]);
+        } else {
+            $article = null;
+        }
 
         return $article;
     }

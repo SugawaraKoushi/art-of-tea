@@ -73,15 +73,15 @@
                         </button>
                     </div>
                     <div class="badge-stack desktop">
-                        <?php foreach ($prompts as $prompt) {
-                            echo '<div class="badge">' . $prompt->text . '</div>';
-                        } ?>
+                        <?php foreach ($prompts as $prompt): ?>
+                            <button class="badge" type="button" onclick="handlePromptClick(event)"><?php echo $prompt->text ?></button>
+                        <?php endforeach; ?>
                     </div>
                     <div class="slider-container badge-stack mobile show">
                         <div class="slider" id="slider2">
                             <?php foreach ($prompts as $prompt): ?>
                                 <div class="slide">
-                                    <div class="badge"><?php echo $prompt->text ?></div>
+                                    <button class="badge" type="button" onclick="handlePromptClick(event)"><?php echo $prompt->text ?></button>
                                 </div>
                             <?php endforeach; ?>
                         </div>

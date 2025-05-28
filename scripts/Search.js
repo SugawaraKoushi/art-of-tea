@@ -2,8 +2,6 @@ var teaCardId = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("search-form");
-    const submitButton = document.getElementById("send-prompt-btn");
-
     form.addEventListener("submit", handleSearchSubmit);
 });
 
@@ -15,7 +13,7 @@ function handleSearchSubmit(event) {
     // Получаем значение поля ввода
     const searchInput = document.getElementById("prompt");
     const query = searchInput.value.trim();
-    searchInput.value = '';
+    searchInput.value = "";
     createQueryMessage(query);
     createLoader();
 
@@ -36,22 +34,25 @@ function handleSearchSubmit(event) {
         })
         .then((data) => {
             deleteLoader();
+            console.log(data);
 
-            if (data.type === "text") {
-                createArticle(data.content);
+            if (data.content == null && data.products == null) {
+                createNoContentMessage();
             } else {
-                // создать чаи в цикле
-                const teas = data.products;
+                if (data.type === "text") {
+                    createArticle(data.content);
+                } else {
+                    const teas = data.products;
 
-                createTeaCardsContainer();
+                    createTeaCardsContainer();
 
-                teas.forEach((tea) => {
-                    createTeaCard(tea);
-                });
+                    teas.forEach((tea) => {
+                        createTeaCard(tea);
+                    });
+                }
             }
         })
         .catch((error) => {
-            deleteLoader();
             console.log(error);
         });
 
@@ -93,7 +94,7 @@ function createLoader() {
     messageItem.classList.add("message-item");
 
     const textRegular = document.createElement("span");
-    const text = document.createTextNode("Думаю и скоров отвечу...");
+    const text = document.createTextNode("Думаю и скоро отвечу...");
     textRegular.appendChild(text);
 
     messageItem.appendChild(textRegular);
@@ -108,6 +109,27 @@ function deleteLoader() {
         ".message-item-container.recieve#loader"
     );
     messages.removeChild(loader);
+}
+
+function createNoContentMessage() {
+    const messages = document.querySelector(".message-items-container");
+
+    const recieveContainer = document.createElement("div");
+    recieveContainer.classList.add("message-item-container", "recieve");
+
+    const messageItem = document.createElement("div");
+    messageItem.classList.add("message-item");
+
+    const textRegular = document.createElement("span");
+    const text = document.createTextNode(
+        "К сожалению ничего не могу предложить"
+    );
+    textRegular.appendChild(text);
+
+    messageItem.appendChild(textRegular);
+
+    recieveContainer.appendChild(messageItem);
+    messages.appendChild(recieveContainer);
 }
 
 function createArticle(content) {
@@ -352,4 +374,12 @@ function createTeaCard(tea) {
     productCard.appendChild(bottomWrap);
 
     messages.appendChild(productCard);
+}
+
+function handlePromptClick(event) {
+    const promptText = event.currentTarget.textContent.trim();
+    const promptArea = document.getElementById("prompt");
+
+    promptArea.value = promptText;
+    handleSearchSubmit(event);
 }

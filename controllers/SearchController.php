@@ -27,20 +27,35 @@ class SearchController
 
             if ($lemmasCount <= 2) {
                 $results = $this->searchService->search_tea($query);
-                echo json_encode([
-                    'type' => 'products',
-                    'products' => $results
-                ]);
+
+                if (!empty($results)) {
+                    echo json_encode([
+                        'type' => 'products',
+                        'products' => $results
+                    ]);
+                } else {
+                    echo json_encode([
+                        'type' => 'products',
+                        'products' => null
+                    ]);
+                }
             } else {
                 $result = $this->searchService->search_article($query);
-                echo json_encode([
-                    'type' => 'text',
-                    'content' => $result->text
-                ]);
+
+                if ($result != null) {
+                    echo json_encode([
+                        'type' => 'text',
+                        'content' => $result->text
+                    ]);
+                } else {
+                    echo json_encode([
+                        'type' => 'text',
+                        'content' => null
+                    ]);
+                }
             }
         } catch (Exception $e) {
             echo json_encode([
-                'success' => false,
                 'error' => $e->getMessage()
             ]);
         }
