@@ -863,6 +863,7 @@ h6 {
 
     display: none;
     justify-content: space-between;
+    align-items: center;
 
     min-height: 40px;
 

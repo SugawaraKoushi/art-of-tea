@@ -1,8 +1,8 @@
 <?php
-$host = 'localhost';
-$db = 'art_of_tea';
-$username = 'root';
-$password = '';
+$host = getenv('DB_HOST') ?: 'localhost';;
+$db = getenv('DB_NAME') ?: 'art_of_tea';
+$username = getenv('DB_USER') ?: 'root';
+$password = getenv('DB_PASSWORD') ?: '';
 $charset = 'utf8';
 
 // Опции подключения

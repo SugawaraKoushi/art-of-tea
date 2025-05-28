@@ -308,9 +308,26 @@ function createTeaCard(tea) {
     // Кнопка минус
     const minusButton = document.createElement("button");
     minusButton.className = "counter-button minus";
-    const minusIcon = document.createElement("img");
-    minusIcon.src = "./icons/stroke/20/minus.svg";
-    minusIcon.alt = "";
+    const minusIcon = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "svg"
+    );
+    minusIcon.setAttribute("width", "20");
+    minusIcon.setAttribute("height", "20");
+    minusIcon.setAttribute("viewBox", "0 0 20 20");
+    minusIcon.setAttribute("fill", "#4DB027");
+
+    const minusIconPath = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "path"
+    );
+    minusIconPath.setAttribute(
+        "d",
+        "M2.75 9.00004L10 9L16.75 9.00004C16.9489 9.00004 17.1397 9.07906 17.2803 9.21971C17.421 9.36036 17.5 9.55113 17.5 9.75004C17.5 9.94895 17.421 10.1397 17.2803 10.2804C17.1397 10.421 16.9489 10.5 16.75 10.5H10H2.75C2.55109 10.5 2.36032 10.421 2.21967 10.2804C2.07902 10.1397 2 9.94895 2 9.75004C2 9.55113 2.07902 9.36036 2.21967 9.21971C2.36032 9.07906 2.55109 9.00004 2.75 9.00004Z"
+    );
+    minusIconPath.setAttribute("fill", "#4DB027");
+
+    minusIcon.appendChild(minusIconPath);
     minusButton.appendChild(minusIcon);
 
     // Счетчик
@@ -321,9 +338,26 @@ function createTeaCard(tea) {
     // Кнопка плюс
     const plusButton = document.createElement("button");
     plusButton.className = "counter-button plus";
-    const plusIcon = document.createElement("img");
-    plusIcon.src = "./icons/stroke/20/plus.svg";
-    plusIcon.alt = "";
+    const plusIcon = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "svg"
+    );
+    plusIcon.setAttribute("width", "16");
+    plusIcon.setAttribute("height", "16");
+    plusIcon.setAttribute("viewBox", "0 0 16 16");
+    plusIcon.setAttribute("fill", "#4DB027");
+
+    const plusIconPath = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "path"
+    );
+    plusIconPath.setAttribute(
+        "d",
+        "M8.5 0.75C8.5 0.551088 8.42098 0.360322 8.28033 0.21967C8.13968 0.0790175 7.94891 0 7.75 0C7.55109 0 7.36032 0.0790175 7.21967 0.21967C7.07902 0.360322 7 0.551088 7 0.75V7H0.75C0.551088 7 0.360322 7.07902 0.21967 7.21967C0.0790175 7.36032 0 7.55109 0 7.75C0 7.94891 0.0790175 8.13968 0.21967 8.28033C0.360322 8.42098 0.551088 8.5 0.75 8.5H7V14.75C7 14.9489 7.07902 15.1397 7.21967 15.2803C7.36032 15.421 7.55109 15.5 7.75 15.5C7.94891 15.5 8.13968 15.421 8.28033 15.2803C8.42098 15.1397 8.5 14.9489 8.5 14.75V8.5H14.75C14.9489 8.5 15.1397 8.42098 15.2803 8.28033C15.421 8.13968 15.5 7.94891 15.5 7.75C15.5 7.55109 15.421 7.36032 15.2803 7.21967C15.1397 7.07902 14.9489 7 14.75 7H8.5V0.75Z"
+    );
+    plusIconPath.setAttribute("fill", "#4DB027");
+
+    plusIcon.appendChild(plusIconPath);
     plusButton.appendChild(plusIcon);
 
     // Добавляем элементы в блок счетчика
