@@ -26,7 +26,7 @@
                             </svg>
                             Избранное
                         </button>
-                        <button class="button-navigation-vertical">
+                        <button class="button-navigation-vertical" id="bucket-btn">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -34,6 +34,7 @@
                                     fill="#1C1C1E" />
                             </svg>
                             Корзина
+                            <div class="bucket-indicator"></div>
                         </button>
                     </div>
                     <button class="button-base-secondary medium" id="close-modal-desktop"

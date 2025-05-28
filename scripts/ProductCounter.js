@@ -1,3 +1,5 @@
+var products = 0;
+
 document.addEventListener("DOMContentLoaded", function () {
     initButtons();
 
@@ -16,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const counterValue = button2.querySelector(".count");
             counterValue.textContent = "1";
+            products++;
         }
 
         // Обработка клика на минус
@@ -39,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             counterValue.textContent = count;
+            products--;
         }
 
         // Обработка клика на плюс
@@ -49,6 +53,20 @@ document.addEventListener("DOMContentLoaded", function () {
             let count = parseInt(counterValue.textContent);
             count++;
             counterValue.textContent = count;
+            products++;
+        }
+
+        const bucketCount = document.querySelectorAll(".bucket-indicator");
+
+        if (products <= 0) {
+            products = 0;
+            bucketCount.forEach((count) => {
+                count.style.display = "none";
+            });
+        } else {
+            bucketCount.forEach((count) => {
+                count.style.display = "block";
+            });
         }
     });
 });

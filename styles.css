@@ -948,6 +948,21 @@ h6 {
     display: none;
 }
 
+#bucket-btn {
+    position: relative;
+}
+
+.bucket-indicator {
+    display: none;
+    aspect-ratio: 1;
+    width: 8px;
+    border-radius: 4px;
+    background-color: #f03434;
+    position: absolute;
+    top: 0;
+    right: 4px;
+}
+
 @media (max-width: 860px) {
     header {
         height: 48px;
