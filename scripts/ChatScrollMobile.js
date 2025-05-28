@@ -40,10 +40,13 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // Если дошли до конца - начинаем сначала
+        // Если дошли до конца
         if (currentCardIndex >= messages.length) {
-            currentCardIndex = 0;
-            smoothScrollTo(messagesContainer, 0, scrollTime);
+            smoothScrollTo(
+                messagesContainer,
+                messagesContainer.scrollHeight,
+                scrollTime
+            );
             return;
         }
 

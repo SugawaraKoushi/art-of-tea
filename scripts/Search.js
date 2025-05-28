@@ -15,7 +15,9 @@ function handleSearchSubmit(event) {
     // Получаем значение поля ввода
     const searchInput = document.getElementById("prompt");
     const query = searchInput.value.trim();
+    searchInput.value = '';
     createQueryMessage(query);
+    createLoader();
 
     // Отправляем запрос на сервер
     fetch("/controllers/SearchController.php?action=search", {
@@ -33,7 +35,7 @@ function handleSearchSubmit(event) {
             return response.json();
         })
         .then((data) => {
-            console.log(data);
+            deleteLoader();
 
             if (data.type === "text") {
                 createArticle(data.content);
@@ -49,6 +51,7 @@ function handleSearchSubmit(event) {
             }
         })
         .catch((error) => {
+            deleteLoader();
             console.log(error);
         });
 
@@ -61,25 +64,6 @@ function changeLayoutToChat() {
 
     const badgeStackMobile = document.querySelector(".badge-stack.mobile");
     badgeStackMobile.classList.remove("show");
-}
-
-function displayResults(results) {
-    const resultsContainer = document.getElementById("search-results");
-    resultsContainer.innerHTML = ""; // Очищаем предыдущие результаты
-
-    if (results.length === 0) {
-        resultsContainer.innerHTML = "<p>Ничего не найдено</p>";
-        return;
-    }
-
-    const list = document.createElement("ul");
-    results.forEach((item) => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        list.appendChild(li);
-    });
-
-    resultsContainer.appendChild(list);
 }
 
 function createQueryMessage(query) {
@@ -96,6 +80,34 @@ function createQueryMessage(query) {
     messageItem.appendChild(queryNode);
     sendContainer.appendChild(messageItem);
     messages.appendChild(sendContainer);
+}
+
+function createLoader() {
+    const messages = document.querySelector(".message-items-container");
+
+    const recieveContainer = document.createElement("div");
+    recieveContainer.classList.add("message-item-container", "recieve");
+    recieveContainer.setAttribute("id", "loader");
+
+    const messageItem = document.createElement("div");
+    messageItem.classList.add("message-item");
+
+    const textRegular = document.createElement("span");
+    const text = document.createTextNode("Думаю и скоров отвечу...");
+    textRegular.appendChild(text);
+
+    messageItem.appendChild(textRegular);
+
+    recieveContainer.appendChild(messageItem);
+    messages.appendChild(recieveContainer);
+}
+
+function deleteLoader() {
+    const messages = document.querySelector(".message-items-container");
+    const loader = document.querySelector(
+        ".message-item-container.recieve#loader"
+    );
+    messages.removeChild(loader);
 }
 
 function createArticle(content) {
@@ -164,7 +176,7 @@ function createTeaCard(tea) {
     const productDescription = document.createElement("span");
     productDescription.classList.add("text-regular", "secondary");
     const productDescriptionContent = tea.description.split("\n").join("<br>");
-    productDescription.innerHTML= productDescriptionContent;
+    productDescription.innerHTML = productDescriptionContent;
 
     // Добавляем заголовок и описание в контейнер верхней части
     textWrap.appendChild(productHeader);
@@ -263,13 +275,13 @@ function createTeaCard(tea) {
     // Создаем кнопку "Добавить"
     const addButton = document.createElement("button");
     addButton.className = "button-base-fill large add-button-variant-1";
-    addButton.setAttribute("id", "tea-card-button-variant-1-" + teaCardId)
+    addButton.setAttribute("id", "tea-card-button-variant-1-" + teaCardId);
     addButton.textContent = "Добавить";
 
     // Создаем блок с кнопками +/-
     const counterBlock = document.createElement("div");
     counterBlock.className = "add-button-variant-2";
-    counterBlock.setAttribute("id", "tea-card-button-variant-2-" + teaCardId)
+    counterBlock.setAttribute("id", "tea-card-button-variant-2-" + teaCardId);
 
     // Кнопка минус
     const minusButton = document.createElement("button");
