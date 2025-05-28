@@ -39,6 +39,8 @@ function handleSearchSubmit(event) {
                 // создать чаи в цикле
                 const teas = data.products;
 
+                createTeaCardsContainer();
+
                 teas.forEach((tea) => {
                     createTeaCard(tea);
                 });
@@ -105,16 +107,15 @@ function createArticle(content) {
 
     const textRegular = document.createElement("span");
     textRegular.classList.add("text-regular");
+    const text = content.split("\n").join("<br>");
+    textRegular.innerHTML = text;
 
-    const text = document.createTextNode(content);
-
-    textRegular.appendChild(text);
     messageItem.appendChild(textRegular);
     recieveContainer.appendChild(messageItem);
     messages.appendChild(recieveContainer);
 }
 
-function createTeaCard(tea) {
+function createTeaCardsContainer() {
     const messages = document.querySelector(".message-items-container");
 
     const recieveContainer = document.createElement("div");
@@ -126,6 +127,17 @@ function createTeaCard(tea) {
     const textRegular = document.createElement("span");
     const text = document.createTextNode("Вот что я могу Вам предложить:");
     textRegular.appendChild(text);
+
+    messageItem.appendChild(textRegular);
+
+    recieveContainer.appendChild(messageItem);
+    messages.appendChild(recieveContainer);
+}
+
+function createTeaCard(tea) {
+    const messages = document.querySelector(
+        ".message-items-container .message-item-container.recieve:last-child > .message-item"
+    );
 
     const productCard = document.createElement("div");
     productCard.classList.add("message-product-card");
@@ -143,8 +155,8 @@ function createTeaCard(tea) {
 
     const productDescription = document.createElement("span");
     productDescription.classList.add("text-regular", "secondary");
-    const productDescriptionContent = document.createTextNode(tea.description);
-    productDescription.appendChild(productDescriptionContent);
+    const productDescriptionContent = tea.description.split("\n").join("<br>");
+    productDescription.innerHTML= productDescriptionContent;
 
     textWrap.appendChild(productHeader);
     textWrap.appendChild(productDescription);
@@ -310,9 +322,5 @@ function createTeaCard(tea) {
     productCard.appendChild(topWrap);
     productCard.appendChild(bottomWrap);
 
-    messageItem.appendChild(textRegular);
-    messageItem.appendChild(productCard);
-
-    recieveContainer.appendChild(messageItem);
-    messages.appendChild(recieveContainer);
+    messages.appendChild(productCard);
 }

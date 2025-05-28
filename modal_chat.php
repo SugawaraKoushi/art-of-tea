@@ -59,7 +59,8 @@
                             <div class="message-item">
                                 <span class='text-regular'>Для утреннего чаепития я рекомендую следующие варианты,
                                     которые
-                                    помогут вам начать день с бодростью и свежестью:</span>
+                                    помогут вам начать день с бодростью и свежестью:
+                                </span>
                                 <div class="message-product-card" id="product-1">
                                     <div class="top-wrap">
                                         <div class="text-wrap">
