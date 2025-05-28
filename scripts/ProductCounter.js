@@ -1,43 +1,62 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const buttons1 = document.querySelectorAll(".add-button-variant-1");
-    const buttons2 = document.querySelectorAll(".add-button-variant-2");
+    initButtons();
 
-    for (let i = 0; i < buttons2.length; i++) {
-        const counterValue = buttons2[i].querySelector(".count");
-        counterValue.textContent = "1";
-    }
+    document.addEventListener("click", function (e) {
+        if (e.target.closest(".add-button-variant-1")) {
+            const button1 = e.target.closest(".add-button-variant-1");
+            const index = Array.from(
+                document.querySelectorAll(".add-button-variant-1")
+            ).indexOf(button1);
+            const button2 = document.querySelectorAll(".add-button-variant-2")[
+                index
+            ];
 
-    for (let i = 0; i < buttons1.length; i++) {
-        buttons1[i].addEventListener("click", function () {
-            buttons1[i].style.display = "none";
-            buttons2[i].style.display = "flex";
+            button1.style.display = "none";
+            button2.style.display = "flex";
 
-            const counterValue = buttons2[i].querySelector(".count");
+            const counterValue = button2.querySelector(".count");
             counterValue.textContent = "1";
-        });
-    }
+        }
 
-    for (let i = 0; i < buttons2.length; i++) {
-        const minusBtn = buttons2[i].querySelector(".minus");
-        const plusBtn = buttons2[i].querySelector(".plus");
-        const counterValue = buttons2[i].querySelector(".count");
+        // Обработка клика на минус
+        if (e.target.closest(".minus")) {
+            const minusBtn = e.target.closest(".minus");
+            const button2 = minusBtn.closest(".add-button-variant-2");
+            const index = Array.from(
+                document.querySelectorAll(".add-button-variant-2")
+            ).indexOf(button2);
+            const button1 = document.querySelectorAll(".add-button-variant-1")[
+                index
+            ];
 
-        let count = parseInt(counterValue.textContent);
-
-        minusBtn.addEventListener("click", function (e) {
+            const counterValue = button2.querySelector(".count");
+            let count = parseInt(counterValue.textContent);
             count = Math.max(0, count - 1);
 
             if (count === 0) {
-                buttons1[i].style.display = "block";
-                buttons2[i].style.display = "none";
+                button1.style.display = "block";
+                button2.style.display = "none";
             }
 
             counterValue.textContent = count;
-        });
+        }
 
-        plusBtn.addEventListener("click", function (e) {
+        // Обработка клика на плюс
+        if (e.target.closest(".plus")) {
+            const plusBtn = e.target.closest(".plus");
+            const button2 = plusBtn.closest(".add-button-variant-2");
+            const counterValue = button2.querySelector(".count");
+            let count = parseInt(counterValue.textContent);
             count++;
             counterValue.textContent = count;
-        });
-    }
+        }
+    });
 });
+
+function initButtons() {
+    const buttons2 = document.querySelectorAll(".add-button-variant-2");
+    buttons2.forEach((button) => {
+        const counterValue = button.querySelector(".count");
+        counterValue.textContent = "1";
+    });
+}

@@ -1,3 +1,5 @@
+var teaCardId = 0;
+
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("search-form");
     const submitButton = document.getElementById("send-prompt-btn");
@@ -135,49 +137,61 @@ function createTeaCardsContainer() {
 }
 
 function createTeaCard(tea) {
+    ++teaCardId;
+
     const messages = document.querySelector(
         ".message-items-container .message-item-container.recieve:last-child > .message-item"
     );
 
     const productCard = document.createElement("div");
     productCard.classList.add("message-product-card");
+    productCard.setAttribute("id", "tea-card-" + teaCardId);
 
-    //---------------------
+    // Создаем контейнер для верхней части
     const topWrap = document.createElement("div");
     topWrap.classList.add("top-wrap");
 
+    // Создаем контейнер для описания
     const textWrap = document.createElement("div");
     textWrap.classList.add("text-wrap");
 
+    // Создаем заголовок
     const productHeader = document.createElement("h6");
     const productHeaderContent = document.createTextNode(tea.name);
     productHeader.appendChild(productHeaderContent);
 
+    // Создаем описание
     const productDescription = document.createElement("span");
     productDescription.classList.add("text-regular", "secondary");
     const productDescriptionContent = tea.description.split("\n").join("<br>");
     productDescription.innerHTML= productDescriptionContent;
 
+    // Добавляем заголовок и описание в контейнер верхней части
     textWrap.appendChild(productHeader);
     textWrap.appendChild(productDescription);
 
-    //---------------------
+    // Создаем контейнер для изображения
     const previewWrap = document.createElement("div");
     previewWrap.classList.add("preview-wrap");
 
+    // Создаем изображение
     const productImg = document.createElement("img");
     productImg.src = "./images/product.png";
 
+    // Создаем контейнер для чекбокса "Любимое"
     const toggleWrap = document.createElement("div");
     toggleWrap.classList.add("toggle-wrap");
 
+    // Создаем чекбокс
     const input = document.createElement("input");
     input.type = "checkbox";
     input.classList.add("favourite-toggle");
+    input.setAttribute("id", "favourite-toggle-tea-" + teaCardId);
 
-    // label
+    // Создаем лейбл для него
     const label = document.createElement("label");
     label.classList.add("favourite-icon");
+    label.setAttribute("for", "favourite-toggle-tea-" + teaCardId);
 
     // SVG пустого сердца
     const emptySvg = document.createElementNS(
@@ -223,6 +237,7 @@ function createTeaCard(tea) {
     );
     filledPath.setAttribute("fill", "#4db027");
 
+    // Добавляем все в обратном порядке
     filledSvg.appendChild(filledPath);
 
     label.appendChild(emptySvg);
@@ -237,7 +252,7 @@ function createTeaCard(tea) {
     topWrap.appendChild(textWrap);
     topWrap.appendChild(previewWrap);
 
-    // Создаем основной контейнер
+    // Создаем контейнер для нижней части
     const bottomWrap = document.createElement("div");
     bottomWrap.className = "bottom-wrap";
 
@@ -248,11 +263,13 @@ function createTeaCard(tea) {
     // Создаем кнопку "Добавить"
     const addButton = document.createElement("button");
     addButton.className = "button-base-fill large add-button-variant-1";
+    addButton.setAttribute("id", "tea-card-button-variant-1-" + teaCardId)
     addButton.textContent = "Добавить";
 
     // Создаем блок с кнопками +/-
     const counterBlock = document.createElement("div");
     counterBlock.className = "add-button-variant-2";
+    counterBlock.setAttribute("id", "tea-card-button-variant-2-" + teaCardId)
 
     // Кнопка минус
     const minusButton = document.createElement("button");
