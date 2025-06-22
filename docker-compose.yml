@@ -25,7 +25,7 @@ services:
       - MYSQL_USER=app_user
       - MYSQL_PASSWORD=1111
     volumes:
-      # - mysql_data:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
       - ./mysql/docker-entrypoint-initdb.d/init.sql:/docker-entrypoint-initdb.d
     ports:
       - "3306:3306"
@@ -36,5 +36,5 @@ services:
       retries: 10
     restart: unless-stopped
 
-# volumes:
-#   mysql_data:
+volumes:
+  mysql_data:
