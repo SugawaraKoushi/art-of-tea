@@ -30,6 +30,8 @@ function handleSearchSubmit(event) {
                 throw new Error("Ошибка сети");
             }
 
+            console.log(response);
+
             return response.json();
         })
         .then((data) => {
