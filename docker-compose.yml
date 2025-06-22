@@ -37,4 +37,4 @@ services:
     restart: unless-stopped
 
 volumes:
-  art-of-tea_mysql_data:
+  mysql_data:
