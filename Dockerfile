@@ -14,12 +14,13 @@ RUN a2enmod rewrite
 # Копируем файлы проекта в контейнер
 COPY . /var/www/html/
 
+# Настройка прав (безопасный вариант)
+RUN chown -R www-data:www-data /var/www/html && \
+    find /var/www/html -type d -exec chmod 755 {} \; && \
+    find /var/www/html -type f -exec chmod 644 {} \;
+
+
 # Устанавливаем рабочую директорию
 WORKDIR /var/www/html
-
-# Устанавливаем права
-RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/www/html
-
 # Порт, который будет слушать Apache
 EXPOSE 80
