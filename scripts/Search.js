@@ -29,9 +29,7 @@ function handleSearchSubmit(event) {
             if (!response.ok) {
                 throw new Error("Ошибка сети");
             }
-
-            console.log(response.text());
-
+            
             return response.json();
         })
         .then((data) => {
